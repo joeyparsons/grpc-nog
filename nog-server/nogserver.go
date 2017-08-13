@@ -69,12 +69,8 @@ func (ns *nogServer) Say(ctx context.Context, request *pb.Request) (*pb.Response
 	}
 
 	response := &pb.Response{
-		Message: fmt.Sprintf("Hello %s (%s)", request.Name, token.Claims["email"]),
+		Message: fmt.Sprintf("Hello %s (%s)", request.Name, token.Claims.(jwt.MapClaims)["email"]),
 	}
 
 	return response, nil
-}
-
-func main() {
-	fmt.Println("vim-go")
 }

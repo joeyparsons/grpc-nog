@@ -65,7 +65,7 @@ func main() {
 
 	pb.RegisterNogServer(gs, ns)
 
-	healthServer := health.NewHealthServer()
+	healthServer := health.NewServer()
 	healthServer.SetServingStatus("grpc.health.v1.nogservice", 1)
 	healthpb.RegisterHealthServer(gs, healthServer)
 
