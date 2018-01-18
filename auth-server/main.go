@@ -104,7 +104,7 @@ func main() {
 	}
 	pb.RegisterAuthServer(gs, as)
 
-	hs := health.NewHealthServer()
+	hs := health.NewServer()
 	hs.SetServingStatus("grpc.health.v1.authservice", 1)
 	healthpb.RegisterHealthServer(gs, hs)
 
